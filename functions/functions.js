@@ -8,8 +8,8 @@ export const amazon = async(i, q) => {
     try {
         let result = []
         let j = 1
-      
-            const response = await axios.get("https://www.amazon.com/s?s=price-desc-ranks&k=" + i)
+        while (result.length < q){
+            const response = await axios.get("https://www.amazon.com/s?s=price-desc-ranks&k=" + i + "&page=" + j)
             const html = response.data
             const $ = cheerio.load(html)
             
@@ -24,11 +24,12 @@ export const amazon = async(i, q) => {
                 result.push({name, img, price, ecommerce, url, price2})
                 
             })
-            
+            result = result.filter(i => i.price !== "")
+            result = result.filter(i => i.price2 !== "")
            
             j++
             
-        
+        }
         results.push(...result.slice(0,q))
            } catch (error) {
             console.log(error)
