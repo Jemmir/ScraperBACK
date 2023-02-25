@@ -8,7 +8,7 @@ config()
 
 const corsOptions = {
     
-    origin: process.env.FRONTCONNECT,
+    origin: process.env.FRONTCONNECT || "http://localhost:3000",
     methods: ["GET", "POST", "PUT", "DELETE"]
   }
   
