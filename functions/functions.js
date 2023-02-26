@@ -80,7 +80,7 @@ export const ebay = async(i, q) => {
                 price2 = Number(price)
             }else if(price.includes("to")){
 
-                price2 = ((Number(price.replace("$", "").replace("$", "").split(" to ")[0]) + Number(price.replace("USD", "").replace("USD", "").split(" a ")[1])) / 2)
+                price2 = ((Number(price.replace("$", "").replace("$", "").split(" to ")[0]) + Number(price.replace("$", "").replace("$", "").split(" to ")[1])) / 2)
                 price = price.replace("$", "")
                 
             }
