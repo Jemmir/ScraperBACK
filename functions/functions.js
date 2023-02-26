@@ -75,10 +75,10 @@ export const ebay = async(i, q) => {
             const url = $(el).find('a').attr('href')
             let price = $(el).find('.s-item__details .s-item__price').eq(0).text()
             let price2 = ""
-            if(!price.includes("a")){
+            if(!price.includes("a") || !price.includes("to")){
                 price = price.replace("USD", "")
                 price2 = Number(price)
-            }else if(price.includes("a")){
+            }else if(price.includes("a") || price.includes("to")){
 
                 price2 = ((Number(price.replace("USD", "").replace("USD", "").split(" a ")[0]) + Number(price.replace("USD", "").replace("USD", "").split(" a ")[1])) / 2)
                 price = price.replace("USD", "").replace("USD", "$")
