@@ -76,12 +76,12 @@ export const ebay = async(i, q) => {
             let price = $(el).find('.s-item__details .s-item__price').eq(0).text()
             let price2 = ""
             if(!price.includes("to")){
-                price = price.replace("USD", "")
+                price = price.replace("$", "")
                 price2 = Number(price)
             }else if(price.includes("to")){
 
-                price2 = ((Number(price.replace("USD", "").replace("USD", "").split(" to ")[0]) + Number(price.replace("USD", "").replace("USD", "").split(" a ")[1])) / 2)
-                price = price.replace("USD", "").replace("USD", "$")
+                price2 = ((Number(price.replace("$", "").replace("$", "").split(" to ")[0]) + Number(price.replace("USD", "").replace("USD", "").split(" a ")[1])) / 2)
+                price = price.replace("$", "")
                 
             }
             
